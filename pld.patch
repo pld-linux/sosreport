@@ -1,0 +1,27 @@
+--- sos-1.8/sosreport~	2009-11-05 15:26:38.000000000 +0200
++++ sos-1.8/sosreport	2010-01-04 00:22:41.520840013 +0200
+@@ -39,10 +39,7 @@
+ from multiprocessing import Semaphore
+ 
+ __version__ = 1.8
+-if os.path.isfile('/etc/fedora-release'):
+-    __distro__ = 'Fedora'
+-else:
+-    __distro__ = 'Red Hat Enterprise Linux'
++__distro__ = 'PLD Linux'
+ 
+ ## Set up routines to be linked to signals for termination handling
+ def exittermhandler(signum, frame):
+--- sos-1.8/lib/sos/plugins/lsbrelease.py~	2009-06-22 21:26:09.000000000 +0300
++++ sos-1.8/lib/sos/plugins/lsbrelease.py	2010-01-04 00:28:54.048094306 +0200
+@@ -20,8 +20,8 @@
+     """Linux Standard Base information
+     """
+     def diagnose(self):
+-        if not os.path.exists("/etc/redhat-release"):
+-            self.addDiagnose("/etc/redhat-release missing")
++        if not os.path.exists("/etc/pld-release"):
++            self.addDiagnose("/etc/pld-release missing")
+             return
+     def setup(self):
+         self.collectExtOutput("/usr/bin/lsb_release -a")

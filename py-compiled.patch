@@ -1,0 +1,13 @@
+--- sos-1.8/sosreport~	2010-01-04 00:22:41.000000000 +0200
++++ sos-1.8/sosreport	2010-01-04 00:26:18.466651458 +0200
+@@ -449,8 +449,8 @@
+ 
+     # validate and load plugins
+     for plug in plugins:
+-        plugbase =  plug[:-3]
+-        if not plug[-3:] == '.py' or plugbase == "__init__":
++        plugbase =  plug[:-4]
++        if not plug[-4:] == '.pyc' or plugbase == "__init__":
+             continue
+         try:
+             if policy.validatePlugin(pluginpath + plug):
